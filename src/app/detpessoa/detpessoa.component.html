@@ -1,0 +1,15 @@
+
+<h2>Selecione uma pessoa da lista para editar</h2>
+
+
+<div *ngIf="selecionado">
+    <h3>{{selecionado.nome}} DETALHES!</h3>
+    <div> <label>id: </label>{{selecionado.id}} </div>
+    <div> <label>email: </label>{{selecionado.email}} </div>    
+    <label>name: </label>
+          <input [(ngModel)]="selecionado.nome" placeholder="name"/>
+
+          <button type="submit" class="btn btn-primary" [disabled]="!formCadastro.valid">Salvar</button>
+  </div>
+
+

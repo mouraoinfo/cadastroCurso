@@ -1,0 +1,38 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+</div>
+
+
+
+  <h2>Lista de Inscritos: </h2>
+  <ul class="heroes">
+    <li *ngFor="let pessoa of pessoas"
+        (click)="onSelect(pessoa)">
+      <span class="badge">{{pessoa.id}}</span> {{pessoa.nome}}
+    </li>
+  </ul>
+
+ 
+
+
+  <app-detpessoa [selecionado]="selecionado" > </app-detpessoa>
+  
+
+
+
+  <div *ngIf="!selecionado">
+    <h2>Cadastrar Pessoa</h2>
+      <form #formEdicao="ngForm" (ngSubmit)="cadastrar()">
+          <div class="form-group">
+              <label for="nome">Nome:</label>
+              <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="novo.nome" required>
+          </div>
+          <div class="form-group">
+              <label for="pessoa">email:</label>
+              <input type="text" class="form-control" id="pessoa" name="pessoa" [(ngModel)]="novo.email" required>
+          </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!formCadastro.valid">Salvar</button>
+      </form>
+  </div>
